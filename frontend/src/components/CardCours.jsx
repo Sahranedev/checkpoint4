@@ -51,11 +51,11 @@ function CardCours({ course, deleteCard }) {
         </p>
       </div>
       <div className="px-6 py-4">
-        <span className="inline-block rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+        <span className="inline-block rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 underline-offset-2">
           Dispensé par :
         </span>
-        <span className="inline-block bg-blue-100 rounded-full px-3 py-1 text-sm font-semibold text-indigo-600 mr-2">
-          {course.lastname} {course.firstname}
+        <span className="inline-block bg-blue-100 rounded-full px-3 py-1 text-sm font-semibold text-[#4353B1] mr-2">
+          {course.firstname} {course.lastname}
         </span>
       </div>
     </div>

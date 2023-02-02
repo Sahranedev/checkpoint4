@@ -4,18 +4,19 @@ import { useCurrentUserContext } from "../Context/userContext";
 import logo from "../assets/CodeLingoLogo.svg";
 
 function Navbar() {
-  const { setUser } = useCurrentUserContext();
+  const { setUser, setProfessor, professor } = useCurrentUserContext();
   const navigate = useNavigate();
 
   const [isNavOpen, setIsNavOpen] = useState(false);
   const logOut = () => {
     localStorage.clear();
+    setProfessor({});
     setUser({});
     navigate("/");
   };
 
   return (
-    <div className="flex items-center justify-between border-b border-blue-900 bg-blue-900">
+    <div className="flex items-center justify-between border-b border-blue-900 bg-[#4353B1]">
       <button type="button" onClick={logOut}>
         <img className="w-[8rem]" src={logo} alt="logo" />
       </button>
@@ -26,9 +27,9 @@ function Navbar() {
             className="HAMBURGER-ICON space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)}
           >
-            <span className="block h-0.5 w-8 animate-pulse bg-[#0f172a]" />
-            <span className="block h-0.5 w-8 animate-pulse bg-[#0f172a]" />
-            <span className="block h-0.5 w-8 animate-pulse bg-[#0f172a]" />
+            <span className="block h-0.5 w-8 animate-pulse bg-white" />
+            <span className="block h-0.5 w-8 animate-pulse bg-white" />
+            <span className="block h-0.5 w-8 animate-pulse bg-white" />
           </button>
 
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
@@ -52,7 +53,13 @@ function Navbar() {
             </button>
             <ul className="flex flex-col items-center justify-between min-h-[250px]">
               <NavLink to="/profile">
-                <li className="border-b border-gray-400 my-8 uppercase">
+                <li
+                  className={`${
+                    professor.id
+                      ? "border-b border-gray-400 my-8 uppercase"
+                      : "hidden"
+                  }`}
+                >
                   <a href="/profile">Mon Profile</a>
                 </li>
               </NavLink>

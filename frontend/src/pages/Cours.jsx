@@ -3,8 +3,11 @@ import { Button } from "@material-tailwind/react";
 import { NavLink } from "react-router-dom";
 import CardCours from "../components/CardCours";
 import Navbar from "../components/Navbar";
+import { useCurrentUserContext } from "../Context/userContext";
 
 function Cours() {
+  const { professor } = useCurrentUserContext();
+
   const [courses, setCourses] = useState([]);
   const [showJavascriptCourses, setShowJavascriptCourses] = useState(false);
 
@@ -38,10 +41,16 @@ function Cours() {
   return (
     <>
       <Navbar />
-      <h1>Les cours</h1>
+      <h1 className="text-center text-2xl font-bold border-[#2f3d51] p-3 mx-auto border-2 border-solid ml-0.2 mr-0.2 mb-3">
+        Les cours
+      </h1>{" "}
       <NavLink to="/create-course">
         <div className="flex justify-center">
-          <Button className="ml-3" color="green">
+          <Button
+            className={`${professor.id ? "ml-3" : "hidden"}`}
+            color="indigo"
+            size="lg"
+          >
             Déclarer un cours
           </Button>{" "}
         </div>
@@ -51,7 +60,7 @@ function Cours() {
         <Button
           className="mt-2"
           size="sm"
-          color="blue"
+          color="yellow"
           onClick={handleJavascriptCourses}
         >
           JavaScript

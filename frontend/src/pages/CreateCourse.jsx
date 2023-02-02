@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast, Toaster } from "react-hot-toast";
 import Navbar from "../components/Navbar";
 import { useCurrentUserContext } from "../Context/userContext";
 
 function CreateCourse() {
+  const notify = () => toast.success("Le cours a bien été déclaré");
   const { professor } = useCurrentUserContext();
   const navigate = useNavigate();
 
@@ -38,6 +40,7 @@ function CreateCourse() {
       fetch("http://localhost:5000/api/courses", requestOptions)
         .then((response) => response.text())
         .then(() => {
+          notify();
           navigate("/course");
         })
         .catch(console.error);
@@ -47,6 +50,7 @@ function CreateCourse() {
   return (
     <>
       <Navbar />
+      <Toaster position="top-center" reverseOrder />
       <form
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-lg shadow-md"
