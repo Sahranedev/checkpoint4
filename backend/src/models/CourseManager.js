@@ -35,6 +35,13 @@ class CourseManager extends AbstractManager {
       [course.name, course.language, course.description, course.id]
     );
   }
+
+  delete(id) {
+    return this.connection.query(
+      `delete from ${this.table} where ${this.table}.id = ?`,
+      [id]
+    );
+  }
 }
 
 module.exports = CourseManager;

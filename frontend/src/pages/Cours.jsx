@@ -6,20 +6,29 @@ import Navbar from "../components/Navbar";
 
 function Cours() {
   const [courses, setCourses] = useState([]);
+  const [showJavascriptCourses, setShowJavascriptCourses] = useState(false);
 
-  useEffect(() => {
+  const handleJavascriptCourses = () => {
+    setShowJavascriptCourses(!showJavascriptCourses);
+  };
+  const fetchCourses = () => {
     fetch("http://localhost:5000/api/courses")
       .then((response) => response.json())
-      .then((data) => setCourses(data));
+      .then((data) => setCourses(data))
+      .catch(console.error);
+  };
+
+  useEffect(() => {
+    fetchCourses();
   }, []);
 
   const deleteCard = (id) => {
     fetch(`http://localhost:5000/api/courses/${id}`, {
       method: "DELETE",
     })
-      .then((response) => response.json())
-      .then((result) => {
-        setCourses(result);
+      .then((response) => response.text())
+      .then(() => {
+        fetchCourses();
       });
   };
 
@@ -31,12 +40,39 @@ function Cours() {
       <Navbar />
       <h1>Les cours</h1>
       <NavLink to="/create-course">
-        <Button color="green">Déclarer un cours</Button>
+        <div className="flex justify-center">
+          <Button className="ml-3" color="green">
+            Déclarer un cours
+          </Button>{" "}
+        </div>
+        <br />
       </NavLink>
-      <ul className="">
-        {courses.map((course) => (
-          <CardCours key={course.id} course={course} deleteCard={deleteCard} />
-        ))}
+      <div className="flex justify-around">
+        <Button
+          className="mt-2"
+          size="sm"
+          color="blue"
+          onClick={handleJavascriptCourses}
+        >
+          JavaScript
+        </Button>
+        <Button className="ml-2" size="sm" color="gray" onClick="">
+          PHP
+        </Button>
+      </div>
+      <ul className="ml-5">
+        {courses
+          .filter(
+            (course) =>
+              !showJavascriptCourses || course.language === "Javascript"
+          )
+          .map((course) => (
+            <CardCours
+              key={course.id}
+              course={course}
+              deleteCard={deleteCard}
+            />
+          ))}
       </ul>
     </>
   );

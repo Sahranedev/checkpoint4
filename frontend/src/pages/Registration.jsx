@@ -23,13 +23,11 @@ function Registration() {
             Inscris toi !
           </Typography>
         </CardHeader>
-        <CardBody className="flex justify-between">
+        <CardBody className="flex flex-col gap-4">
           <Input label="Nom" size="lg" />
           <Input label="Prénom" size="lg" />
-        </CardBody>
-        <CardBody className="flex flex-col gap-4">
           <Input label="Email" size="lg" />
-          <Input type="password" label="Password" size="lg" />
+          <Input type="password" label="Mot de passe" size="lg" />
           <div className="-ml-2.5">
             <Checkbox label="Remember Me" />
           </div>

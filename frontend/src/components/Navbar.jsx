@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useCurrentUserContext } from "../Context/userContext";
+import logo from "../assets/CodeLingoLogo.svg";
 
 function Navbar() {
   const { setUser } = useCurrentUserContext();
@@ -14,9 +15,9 @@ function Navbar() {
   };
 
   return (
-    <div className="flex items-center justify-between border-b border-blue-900 bg-indigo-400 py-8">
+    <div className="flex items-center justify-between border-b border-blue-900 bg-blue-900">
       <button type="button" onClick={logOut}>
-        <img src="https://designbygio.it/images/logo.png" alt="logo" />
+        <img className="w-[8rem]" src={logo} alt="logo" />
       </button>
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
@@ -60,11 +61,22 @@ function Navbar() {
                   <a href="/course">Cours</a>
                 </li>
               </NavLink>
+
               <li className="border-b border-gray-400 my-8 uppercase">
                 <a href="/cours">Mes cours</a>
               </li>
+
               <li className="border-b border-gray-400 my-8 uppercase">
                 <a href="/professeurs">Professeurs</a>
+              </li>
+              <li className="border-b border-gray-400 mt-[12rem] uppercase">
+                <button
+                  onClick={logOut}
+                  className="border-solid border-4"
+                  type="button"
+                >
+                  DECONNEXION{" "}
+                </button>
               </li>
             </ul>
           </div>

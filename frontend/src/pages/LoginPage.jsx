@@ -76,7 +76,7 @@ function LoginPage() {
             <Input
               onChange={(e) => setPassword(e.target.value)}
               type="password"
-              label="Password"
+              label="Mot de passe"
               size="lg"
               id="password"
             />
@@ -84,13 +84,13 @@ function LoginPage() {
               <Checkbox label="Remember Me" />
             </div>
           </CardBody>
-          <Button type="submit" variant="gradient" fullWidth>
-            Sign In
+          <Button type="submit" color="indigo" variant="gradient" fullWidth>
+            Me Connecter
           </Button>
         </form>
         <CardFooter className="pt-0">
           <Typography variant="small" className="mt-6 flex justify-center">
-            Don't have an account?
+            Pas de compte ?
             <NavLink to="/registration">
               <Typography
                 as="a"
@@ -99,7 +99,7 @@ function LoginPage() {
                 color="blue"
                 className="ml-1 font-bold"
               >
-                Sign up
+                S'inscrire
               </Typography>{" "}
             </NavLink>
             <NavLink to="/login-professeur">

@@ -1,22 +1,29 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useCurrentUserContext } from "../Context/userContext";
 
 function CardCours({ course, deleteCard }) {
   const [showMenu, setShowMenu] = useState(false);
+  const { professor } = useCurrentUserContext();
 
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg mt-10 bg-[#F9FAFC] relative">
       <div className="absolute top-0 right-0">
         <button
           type="button"
-          className="focus:outline-none"
+          className={` ${
+            professor.id === course.professor_id
+              ? "focus:outline-none block"
+              : "hidden"
+          }`}
           onClick={() => setShowMenu(!showMenu)}
         >
           ...
         </button>
+
         {showMenu && (
-          <div className="bg-white rounded shadow-md py-2 absolute right-0 mt-2">
+          <div className="bg-white rounded shadow-md py-2 absolute right-0 mt-2 ">
             <NavLink to={`/edit-course/${course.id}`}>
               <button
                 type="button"

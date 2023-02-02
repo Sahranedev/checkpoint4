@@ -27,12 +27,13 @@ class ProfessorManager extends AbstractManager {
 
   insert(professor) {
     return this.connection.query(
-      `insert into ${this.table} (firstname, lastname, password, email) values (?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (firstname, lastname, password, email, avatar) values (?, ?, ?, ?, ?)`,
       [
         professor.firstname,
         professor.lastname,
         professor.hashedPassword,
         professor.email,
+        professor.avatar,
       ]
     );
   }
