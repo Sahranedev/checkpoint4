@@ -55,7 +55,7 @@ function LoginPage() {
         .then((result) => {
           setUser(result.user);
           setToken(result.token);
-          navigate("/home");
+          navigate("/course");
         })
 
         .catch(console.error);
@@ -110,7 +110,7 @@ function LoginPage() {
                   href="#signup"
                   variant="small"
                   color="blue"
-                  className="ml-1 font-bold"
+                  className="ml-2 font-bold mr-2"
                 >
                   S'inscrire
                 </Typography>{" "}
@@ -121,7 +121,7 @@ function LoginPage() {
                   href="/"
                   variant="small"
                   color="purple"
-                  className="ml-1 font-bold"
+                  className="ml-2 font-bold"
                 >
                   Professeur
                 </Typography>{" "}

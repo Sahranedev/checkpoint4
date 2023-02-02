@@ -8,6 +8,7 @@ import {
   Tooltip,
 } from "@material-tailwind/react";
 import { useCurrentUserContext } from "../Context/userContext";
+import twitter from "../assets/miniature-twitter.jpg";
 
 function ProfileCard() {
   const { professor } = useCurrentUserContext();
@@ -21,7 +22,7 @@ function ProfileCard() {
         <Typography variant="h4" color="blue-gray" className="mb-2" />
         {professor.firstname} {professor.lastname}
         <Typography color="blue" className="font-medium" textGradient>
-          CEO / Co-Founder
+          Grand Maître JS
         </Typography>
       </CardBody>
       <CardFooter className="flex justify-center gap-7 pt-2">
@@ -38,14 +39,11 @@ function ProfileCard() {
         </Tooltip>
         <Tooltip content="Follow">
           <Typography
-            as="a"
-            href="#twitter"
+            src={twitter}
             variant="lead"
             color="light-blue"
             textGradient
-          >
-            <i className="fab fa-twitter" />
-          </Typography>
+          />
         </Tooltip>
         <Tooltip content="Follow">
           <Typography

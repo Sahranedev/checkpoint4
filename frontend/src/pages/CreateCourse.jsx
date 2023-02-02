@@ -55,13 +55,13 @@ function CreateCourse() {
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-lg shadow-md"
       >
-        <h2 className="text-lg font-medium mb-4">Create a New Course</h2>
+        <h2 className="text-lg font-medium mb-4">Déclarer un nouveau cours</h2>
         <div className="mb-4">
           <label
             className="block font-medium mb-2 text-gray-700"
             htmlFor="name"
           >
-            Course Name
+            Nom du cours
           </label>
           <input
             type="text"
@@ -77,7 +77,7 @@ function CreateCourse() {
             className="block font-medium mb-2 text-gray-700"
             htmlFor="language"
           >
-            Language
+            Langage
           </label>
           <input
             type="text"
@@ -104,13 +104,21 @@ function CreateCourse() {
             onChange={handleInputChange}
           />
         </div>
-
-        <button
-          type="submit"
-          className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600"
-        >
-          Create Course
-        </button>
+        <div className="flex justify-around">
+          <button
+            type="submit"
+            className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600"
+          >
+            Déclarer le cours
+          </button>
+          <button
+            type="button"
+            className="bg-red-600 p-2 rounded-lg"
+            onClick={() => navigate(-1)}
+          >
+            Annuler
+          </button>
+        </div>
       </form>
     </>
   );

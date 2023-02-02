@@ -17,7 +17,7 @@ class CourseManager extends AbstractManager {
   findAll() {
     return this.connection.query(
       `select ${this.table}.id, name, language, description, professor_id, p.firstname, p.lastname from  ${this.table}
-      LEFT JOIN professor as p ON ${this.table}.professor_id = p.id
+      LEFT JOIN professor as p ON ${this.table}.professor_id = p.id ORDER BY ${this.table}.id DESC
       `
     );
   }

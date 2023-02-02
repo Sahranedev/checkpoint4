@@ -54,9 +54,17 @@ function CardCours({ course, deleteCard }) {
         <span className="inline-block rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 underline-offset-2">
           Dispensé par :
         </span>
-        <span className="inline-block bg-blue-100 rounded-full px-3 py-1 text-sm font-semibold text-[#4353B1] mr-2">
-          {course.firstname} {course.lastname}
-        </span>
+        {professor.id === course.professor_id ? (
+          <span className="inline-block bg-blue-100 rounded-full px-3 py-1 text-sm font-semibold text-[#4353B1] mr-2">
+            Moi même
+          </span>
+        ) : (
+          <span className="inline-block bg-blue-100 rounded-full px-3 py-1 text-sm font-semibold text-[#4353B1] mr-2">
+            {" "}
+            {course.firstname}
+            {course.lastname}
+          </span>
+        )}
       </div>
     </div>
   );

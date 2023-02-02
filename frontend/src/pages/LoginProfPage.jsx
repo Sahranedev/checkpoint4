@@ -55,7 +55,7 @@ function LoginProfPage() {
         .then((result) => {
           setProfessor(result.professor);
           setToken(result.token);
-          navigate("/home");
+          navigate("/course");
         })
 
         .catch(console.error);

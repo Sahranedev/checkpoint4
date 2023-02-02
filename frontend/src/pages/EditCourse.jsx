@@ -43,15 +43,14 @@ function EditCourse() {
   return (
     <>
       <Navbar />
-      <div>edit course id : {courseId}</div>
       <form onSubmit={onSubmit} className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-lg font-medium mb-4">Create a New Course</h2>
+        <h2 className="text-lg font-medium mb-4">Modfification du cours</h2>
         <div className="mb-4">
           <label
             className="block font-medium mb-2 text-gray-700"
             htmlFor="name"
           >
-            Course Name
+            Nom du cours
           </label>
           <input
             type="text"
@@ -67,7 +66,7 @@ function EditCourse() {
             className="block font-medium mb-2 text-gray-700"
             htmlFor="language"
           >
-            Language
+            Langage
           </label>
           <input
             type="text"
@@ -94,13 +93,21 @@ function EditCourse() {
             onChange={onChange}
           />
         </div>
-
-        <button
-          type="submit"
-          className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600"
-        >
-          Modifier le cours
-        </button>
+        <div className="flex justify-around">
+          <button
+            type="submit"
+            className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600"
+          >
+            Modifier le cours
+          </button>
+          <button
+            type="button"
+            className="bg-red-600 p-2 rounded-lg"
+            onClick={() => navigate(-1)}
+          >
+            Annuler la modification
+          </button>
+        </div>
       </form>
     </>
   );
