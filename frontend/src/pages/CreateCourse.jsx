@@ -1,11 +1,20 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast, Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import Navbar from "../components/Navbar";
 import { useCurrentUserContext } from "../Context/userContext";
 
 function CreateCourse() {
-  const notify = () => toast.success("Le cours a bien été déclaré");
+  const notifySuccess = () => toast.success("Le cours a bien été déclaré");
+  const notifyError = () => {
+    toast.error(
+      "Le cour n'a pas pu être déclaré, veuillez vérifier les informations saisies",
+      {
+        icon: "🚫",
+      }
+    );
+  };
+
   const { professor } = useCurrentUserContext();
   const navigate = useNavigate();
 
@@ -38,19 +47,28 @@ function CreateCourse() {
 
     if (course.name && course.description && course.language) {
       fetch("http://localhost:5000/api/courses", requestOptions)
-        .then((response) => response.text())
-        .then(() => {
-          notify();
-          navigate("/course");
+        .then((response) => {
+          if (response.status !== 201) {
+            notifyError();
+          }
+          response.text();
         })
+        .then((response) => {
+          console.warn(response);
+          notifySuccess();
+          setTimeout(() => {
+            navigate("/course");
+          }, 1500);
+        })
+
         .catch(console.error);
     }
   };
 
   return (
     <>
+      <Toaster />
       <Navbar />
-      <Toaster position="top-center" reverseOrder />
       <form
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-lg shadow-md"

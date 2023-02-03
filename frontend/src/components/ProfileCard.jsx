@@ -14,7 +14,7 @@ function ProfileCard() {
   const { professor } = useCurrentUserContext();
 
   return (
-    <Card className="w-96">
+    <Card className="w-96 ml-4">
       <CardHeader floated={false} className="h-80">
         <img src={professor.avatar} alt="" />
       </CardHeader>

@@ -12,6 +12,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 import animationData from "../assets/lottie-registration.json";
 
 function Registration() {
@@ -29,6 +30,8 @@ function Registration() {
   const [email, setEmail] = useState();
   const [city, setCity] = useState();
   const [password, setPassword] = useState();
+  const notifySuccess = () =>
+    toast.success("Enregistrement réussi, vous allez être redirigé");
   const sendUser = (e) => {
     e.preventDefault();
     /* This is a header for the fetch */
@@ -53,8 +56,10 @@ function Registration() {
     })
       .then((response) => {
         if (response.ok) {
-          alert("Votre inscription à été prise en compte");
-          navigate("/");
+          notifySuccess();
+          setTimeout(() => {
+            navigate("/");
+          }, 1500);
         }
       })
       .catch((error) => {
@@ -68,6 +73,7 @@ function Registration() {
     <div>
       {" "}
       <Lottie options={defaultOptions} height={300} width={300} />
+      <Toaster />
       <div className="flex justify-center items-center">
         <Card className="w-96">
           <CardHeader

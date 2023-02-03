@@ -20,7 +20,9 @@ function Profile() {
   return (
     <>
       <Navbar />
-      <h1>Mon Profile</h1>
+      <div className="flex justify-center">
+        <h1 className="font-bold text-blue-600 text-xl">Mon Profile</h1>
+      </div>
       <ProfileCard />
       <ul className="ml-5">
         {courses

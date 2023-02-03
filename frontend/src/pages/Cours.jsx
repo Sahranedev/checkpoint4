@@ -65,6 +65,9 @@ function Cours() {
         >
           JavaScript
         </Button>
+        <Button className="ml-2" size="sm" color="blue" onClick="">
+          SQL
+        </Button>
         <Button className="ml-2" size="sm" color="gray" onClick="">
           PHP
         </Button>
