@@ -23,14 +23,18 @@ function Profile() {
       <div className="flex justify-center">
         <h1 className="font-bold text-blue-600 text-xl">Mon Profile</h1>
       </div>
-      <ProfileCard />
-      <ul className="ml-5">
-        {courses
-          .filter((course) => course.professor_id === professor.id)
-          .map((course) => (
-            <CardCours key={course.id} course={course} />
-          ))}
-      </ul>
+      <div className="flex justify-center">
+        <ProfileCard />
+      </div>
+      <div className="flex justify-center">
+        <ul className="flex flex-col justify-center items-center w-3/4 md:w-6/12">
+          {courses
+            .filter((course) => course.professor_id === professor.id)
+            .map((course) => (
+              <CardCours key={course.id} course={course} />
+            ))}
+        </ul>
+      </div>
     </>
   );
 }

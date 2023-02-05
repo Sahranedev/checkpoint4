@@ -75,7 +75,7 @@ function Registration() {
       <Lottie options={defaultOptions} height={300} width={300} />
       <Toaster />
       <div className="flex justify-center items-center">
-        <Card className="w-96">
+        <Card className="w-96 md:w-1/2">
           <CardHeader
             variant="gradient"
             color="indigo"
@@ -112,15 +112,24 @@ function Registration() {
                 type="password"
                 label="Mot de passe"
                 size="lg"
+                className=""
               />
               <div className="-ml-2.5">
                 <Checkbox label="Remember Me" />
               </div>
             </CardBody>
             <CardFooter className="pt-0">
-              <Button color="indigo" type="submit" variant="gradient" fullWidth>
-                S'inscrire
-              </Button>
+              <div className="flex justify-center">
+                <Button
+                  color="indigo"
+                  type="submit"
+                  variant="gradient"
+                  className="md:w-72"
+                  fullWidth
+                >
+                  S'inscrire
+                </Button>
+              </div>
             </CardFooter>
           </form>
         </Card>

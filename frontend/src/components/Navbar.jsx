@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useCurrentUserContext } from "../Context/userContext";
@@ -89,16 +90,19 @@ function Navbar() {
           </div>
         </section>
 
-        <ul className="DESKTOP-MENU hidden space-x-8 lg:flex">
-          <li>
-            <a href="/about">Cours</a>
-          </li>
-          <li>
-            <a href="/portfolio">Mes cours</a>
-          </li>
-          <li>
-            <a href="/contact">Professeurs</a>
-          </li>
+        <ul className="DESKTOP-MENU hidden space-x-8 lg:flex mr-10">
+          <NavLink to="/course">
+            <li className="font-bold text-white text-2xl  mt-2">Cours</li>
+          </NavLink>
+          <li className="font-bold text-white text-2xl mt-2">Mes cours</li>
+          <NavLink to="/profile">
+            <li>
+              <img
+                className="rounded-full object-cover w-12 h-12   mr-6 border-4"
+                src={professor.avatar}
+              />
+            </li>
+          </NavLink>
         </ul>
       </nav>
       <style>{`

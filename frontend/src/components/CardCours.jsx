@@ -8,7 +8,7 @@ function CardCours({ course, deleteCard }) {
   const { professor } = useCurrentUserContext();
 
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg mt-10 bg-[#F9FAFC] relative">
+    <div className="w-full md:w-full md:h-64 rounded overflow-hidden shadow-lg mt-10 bg-[#F9FAFC] relative">
       <div className="absolute top-0 right-0">
         <button
           type="button"
@@ -50,7 +50,7 @@ function CardCours({ course, deleteCard }) {
           Description : {course.description}
         </p>
       </div>
-      <div className="px-6 py-4">
+      <div className="px-6 py-4 md:absolute md:bottom-5">
         <span className="inline-block rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 underline-offset-2">
           Dispensé par :
         </span>

@@ -72,11 +72,16 @@ function LoginPage() {
   };
   return (
     <div>
-      <Lottie options={defaultOptions} height={400} width={400} />
+      <Lottie
+        options={defaultOptions}
+        height={400}
+        width={400}
+        className="md:w-1/2"
+      />
       <Toaster />
 
       <div className="flex justify-center items-center">
-        <Card className="w-96">
+        <Card className="w-96 md:w-1/3 md:h-1/3">
           <CardHeader
             variant="gradient"
             color="indigo"
@@ -105,9 +110,17 @@ function LoginPage() {
                 <Checkbox label="Remember Me" />
               </div>
             </CardBody>
-            <Button type="submit" color="indigo" variant="gradient" fullWidth>
-              Me Connecter
-            </Button>
+            <div className="flex justify-center">
+              <Button
+                type="submit"
+                color="indigo"
+                variant="gradient"
+                className="md:w-40"
+                fullWidth
+              >
+                Me Connecter
+              </Button>
+            </div>
           </form>
           <CardFooter className="pt-0">
             <Typography variant="small" className="mt-6 flex justify-center">

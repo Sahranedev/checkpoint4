@@ -72,20 +72,22 @@ function Cours() {
           PHP
         </Button>
       </div>
-      <ul className="ml-5">
-        {courses
-          .filter(
-            (course) =>
-              !showJavascriptCourses || course.language === "Javascript"
-          )
-          .map((course) => (
-            <CardCours
-              key={course.id}
-              course={course}
-              deleteCard={deleteCard}
-            />
-          ))}
-      </ul>
+      <div className="flex justify-center">
+        <ul className="flex flex-col justify-center items-center w-3/4 md:w-6/12">
+          {courses
+            .filter(
+              (course) =>
+                !showJavascriptCourses || course.language === "Javascript"
+            )
+            .map((course) => (
+              <CardCours
+                key={course.id}
+                course={course}
+                deleteCard={deleteCard}
+              />
+            ))}
+        </ul>
+      </div>
     </>
   );
 }

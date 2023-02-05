@@ -67,7 +67,7 @@ function LoginProfPage() {
     <div className="">
       <Lottie options={defaultOptions} height={400} width={400} />
       <div className=" flex justify-center items-center mt-20">
-        <Card className="w-96">
+        <Card className="w-96 md:w-1/2">
           <CardHeader
             variant="gradient"
             color="indigo"
@@ -96,9 +96,17 @@ function LoginProfPage() {
                 <Checkbox label="Remember Me" />
               </div>
             </CardBody>
-            <Button color="indigo" type="submit" variant="gradient" fullWidth>
-              Me Connecter
-            </Button>
+            <div className="flex justify-center">
+              <Button
+                color="indigo"
+                type="submit"
+                variant="gradient"
+                className="md:w-72"
+                fullWidth
+              >
+                Me Connecter
+              </Button>
+            </div>
           </form>
           <CardFooter className="pt-0" />
         </Card>

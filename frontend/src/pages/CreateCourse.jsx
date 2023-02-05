@@ -69,75 +69,81 @@ function CreateCourse() {
     <>
       <Toaster />
       <Navbar />
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-lg shadow-md"
-      >
-        <h2 className="text-lg font-medium mb-4">Déclarer un nouveau cours</h2>
-        <div className="mb-4">
-          <label
-            className="block font-medium mb-2 text-gray-700"
-            htmlFor="name"
-          >
-            Nom du cours
-          </label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            className="border border-gray-400 p-2 rounded-lg w-full"
-            value={course.name}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block font-medium mb-2 text-gray-700"
-            htmlFor="language"
-          >
-            Langage
-          </label>
-          <input
-            type="text"
-            name="language"
-            id="language"
-            className="border border-gray-400 p-2 rounded-lg w-full"
-            value={course.language}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block font-medium mb-2 text-gray-700"
-            htmlFor="description"
-          >
-            Description
-          </label>
-          <textarea
-            name="description"
-            id="description"
-            rows={3}
-            className="border border-gray-400 p-2 rounded-lg w-full"
-            value={course.description}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="flex justify-around">
-          <button
-            type="submit"
-            className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600"
-          >
-            Déclarer le cours
-          </button>
-          <button
-            type="button"
-            className="bg-red-600 p-2 rounded-lg"
-            onClick={() => navigate(-1)}
-          >
-            Annuler
-          </button>
-        </div>
-      </form>
+      <div className="flex justify-center">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white p-6 rounded-lg shadow-md md:w-1/2 "
+        >
+          <div className="flex justify-center">
+            <h2 className="text-lg font-medium mb-4">
+              Déclarer un nouveau cours
+            </h2>
+          </div>
+          <div className="mb-4">
+            <label
+              className="block font-medium mb-2 text-gray-700 md:w-1/3"
+              htmlFor="name"
+            >
+              Nom du cours
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              className="border border-gray-400 p-2 rounded-lg w-full"
+              value={course.name}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block font-medium mb-2 text-gray-700"
+              htmlFor="language"
+            >
+              Langage
+            </label>
+            <input
+              type="text"
+              name="language"
+              id="language"
+              className="border border-gray-400 p-2 rounded-lg w-full"
+              value={course.language}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block font-medium mb-2 text-gray-700"
+              htmlFor="description"
+            >
+              Description
+            </label>
+            <textarea
+              name="description"
+              id="description"
+              rows={3}
+              className="border border-gray-400 p-2 rounded-lg w-full"
+              value={course.description}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="flex justify-around">
+            <button
+              type="submit"
+              className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600"
+            >
+              Déclarer le cours
+            </button>
+            <button
+              type="button"
+              className="bg-red-600 p-2 rounded-lg"
+              onClick={() => navigate(-1)}
+            >
+              Annuler
+            </button>
+          </div>
+        </form>
+      </div>
     </>
   );
 }

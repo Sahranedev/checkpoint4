@@ -43,72 +43,77 @@ function EditCourse() {
   return (
     <>
       <Navbar />
-      <form onSubmit={onSubmit} className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-lg font-medium mb-4">Modfification du cours</h2>
-        <div className="mb-4">
-          <label
-            className="block font-medium mb-2 text-gray-700"
-            htmlFor="name"
-          >
-            Nom du cours
-          </label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            className="border border-gray-400 p-2 rounded-lg w-full"
-            value={JSON.stringify(dataCourse.name)}
-            onChange={onChange}
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block font-medium mb-2 text-gray-700"
-            htmlFor="language"
-          >
-            Langage
-          </label>
-          <input
-            type="text"
-            name="language"
-            id="language"
-            className="border border-gray-400 p-2 rounded-lg w-full"
-            value={dataCourse.language}
-            onChange={onChange}
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block font-medium mb-2 text-gray-700"
-            htmlFor="description"
-          >
-            Description
-          </label>
-          <textarea
-            name="description"
-            id="description"
-            rows={3}
-            className="border border-gray-400 p-2 rounded-lg w-full"
-            value={dataCourse.description}
-            onChange={onChange}
-          />
-        </div>
-        <div className="flex justify-around">
-          <button
-            type="submit"
-            className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600"
-          >
-            Modifier le cours
-          </button>
-          <button
-            type="button"
-            className="bg-red-600 p-2 rounded-lg"
-            onClick={() => navigate(-1)}
-          >
-            Annuler la modification
-          </button>
-        </div>
-      </form>
+      <div className="flex justify-center">
+        <form
+          onSubmit={onSubmit}
+          className="bg-white p-6 rounded-lg shadow-md md:w-1/2"
+        >
+          <h2 className="text-lg font-medium mb-4">Modification du cours</h2>
+          <div className="mb-4">
+            <label
+              className="block font-medium mb-2 text-gray-700"
+              htmlFor="name"
+            >
+              Nom du cours
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              className="border border-gray-400 p-2 rounded-lg w-full"
+              value={JSON.stringify(dataCourse.name)}
+              onChange={onChange}
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block font-medium mb-2 text-gray-700"
+              htmlFor="language"
+            >
+              Langage
+            </label>
+            <input
+              type="text"
+              name="language"
+              id="language"
+              className="border border-gray-400 p-2 rounded-lg w-full"
+              value={dataCourse.language}
+              onChange={onChange}
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block font-medium mb-2 text-gray-700"
+              htmlFor="description"
+            >
+              Description
+            </label>
+            <textarea
+              name="description"
+              id="description"
+              rows={3}
+              className="border border-gray-400 p-2 rounded-lg w-full"
+              value={dataCourse.description}
+              onChange={onChange}
+            />
+          </div>
+          <div className="flex justify-around">
+            <button
+              type="submit"
+              className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 m-2 "
+            >
+              Modifier le cours
+            </button>
+            <button
+              type="button"
+              className="bg-red-600 p-2 rounded-lg m-2"
+              onClick={() => navigate(-1)}
+            >
+              Annuler la modification
+            </button>
+          </div>
+        </form>
+      </div>
     </>
   );
 }
